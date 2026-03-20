@@ -5,69 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Deepthi RS Portfolio</title>
     <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="mediaqueries.css"/>
 </head>
 <body>
     <!-- Navbar -->
-    <nav id="desktop-nav" class="slideDown">
-        <div class="logo">
-            <a onclick="scrollToSection('profile')">Deepthi RS</a>
-        </div>
-        <div>
-            <ul class="nav-links">
-                <li><a onclick="scrollToSection('about')">About Me</a></li>
-                <li><a onclick="scrollToSection('education')">Education</a></li>
-                <li><a onclick="scrollToSection('skills')">Skills</a></li>
-                <li><a onclick="scrollToSection('projects')">Projects</a></li>
-                <li><a onclick="scrollToSection('contact')">Contact</a></li>
-            </ul>
+    <nav id="desktop-nav">
+        <div class="logo"><a href="javascript:void(0)" onclick="scrollToSection('profile')">Deepthi RS</a></div>
+        <ul class="nav-links">
+            <li><a href="javascript:void(0)" onclick="scrollToSection('about')">About Me</a></li>
+            <li><a href="javascript:void(0)" onclick="scrollToSection('education')">Education</a></li>
+            <li><a href="javascript:void(0)" onclick="scrollToSection('skills')">Skills</a></li>
+            <li><a href="javascript:void(0)" onclick="scrollToSection('projects')">Projects</a></li>
+            <li><a href="javascript:void(0)" onclick="scrollToSection('contact')">Contact</a></li>
+        </ul>
+        <div class="hamburger-icon" onclick="togglemenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
-    <!-- Hamburger Navbar -->
-    <nav id="hamburger-nav" class="slideDown">
-        <div class="logo">Deepthi RS</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="togglemenu()">
-              <span></span>
-              <span></span>
-              <span></span>  
-            </div>
-            <div class="menu-links">
-                <li><a href="#about" onclick="togglemenu()">About Me</a></li>
-                <li><a href="#education" onclick="togglemenu()">Education</a></li>
-                <li><a href="#skills" onclick="togglemenu()">Skills</a></li>
-                <li><a href="#projects" onclick="togglemenu()">Projects</a></li>
-                <li><a href="#contact" onclick="togglemenu()">Contact</a></li>  
-            </div>
-        </div>
-    </nav>
+    <!-- Mobile menu -->
+    <div class="menu-links">
+        <li><a href="javascript:void(0)" onclick="scrollToSection('about'); togglemenu()">About Me</a></li>
+        <li><a href="javascript:void(0)" onclick="scrollToSection('education'); togglemenu()">Education</a></li>
+        <li><a href="javascript:void(0)" onclick="scrollToSection('skills'); togglemenu()">Skills</a></li>
+        <li><a href="javascript:void(0)" onclick="scrollToSection('projects'); togglemenu()">Projects</a></li>
+        <li><a href="javascript:void(0)" onclick="scrollToSection('contact'); togglemenu()">Contact</a></li>
+    </div>
 
     <!-- Hero Section -->
     <section id="profile">
         <div class="section__pic-container">
-            <img src="profile.png" alt="Deepthi RS profile picture" class="fade-in">
+            <img src="profile.png" alt="Deepthi RS profile picture">
         </div>
-        <div class="c1">
-            <div class="section__text slide-in-text">
-                <p class="section__text__p1">Hello, I'm</p>
-                <h1 class="title">Deepthi RS</h1>
-                <p class="section__text__p2">Information Science Engineer | Aspiring Software Developer | Learning Japanese (JLPT N5/N4)</p>
-                <div class="btn-container">
-                    <a href="resume.pdf" download class="btn btn-color-2">Download Resume</a>
-                    <button class="btn btn-color-1" onclick="location.href='#contact'">Contact Info</button>
-                </div>
-                <div id="socials-container">
-                    <img src="linkedin.png" alt="LinkedIn Profile" class="icon" onclick="location.href='https://www.linkedin.com/in/deepthi-rs/'"/>
-                    <img src="github.png" alt="GitHub Profile" class="icon" onclick="location.href='https://github.com/deepthirs-01'"/>
-                </div>
+        <div class="section__text">
+            <p>Hello, I'm</p>
+            <h1 class="title">Deepthi RS</h1>
+            <p>Information Science Engineer | Aspiring Software Developer | Learning Japanese (JLPT N5/N4)</p>
+            <div class="btn-container">
+                <a href="resume.pdf" download class="btn btn-color-2">Download Resume</a>
+                <button class="btn btn-color-1" onclick="scrollToSection('contact')">Contact Info</button>
+            </div>
+            <div id="socials-container">
+                <img src="linkedin.png" alt="LinkedIn Profile" onclick="location.href='https://www.linkedin.com/in/deepthi-rs/'">
+                <img src="github.png" alt="GitHub Profile" onclick="location.href='https://github.com/deepthirs-01'">
             </div>
         </div>
     </section>
 
-    <!-- About Me Section -->
+    <!-- About Me -->
     <section id="about">
-        <p class="section__text__p1">Get To Know More</p>
         <h1 class="title">About Me</h1>
         <div class="about-details-container">
             <p>
@@ -82,17 +69,17 @@
         </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education -->
     <section id="education">
         <h1 class="title">Education</h1>
         <div class="education-details-container">
-            <div class="education1 k">
-                <p><strong>Sri Kumarans Children Composite PU College</strong></p>
+            <div>
+                <h2>Sri Kumarans Children Composite PU College</h2>
                 <p>2021 – 2023</p>
                 <p>1 PUC & 2 PUC | Percentage: 94%</p>
             </div>
-            <div class="education2 k">
-                <p><strong>SJB Institute of Technology</strong></p>
+            <div>
+                <h2>SJB Institute of Technology</h2>
                 <p>2023 – 2027</p>
                 <p>Bachelor of Engineering in Information Science and Engineering | CGPA: 9.78</p>
             </div>
@@ -101,7 +88,7 @@
         <p>English | Kannada | Telugu</p>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects">
         <h1 class="title">Projects</h1>
         <div class="projects-container">
@@ -120,10 +107,10 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills">
         <h1 class="title">Skills</h1>
-        <ul>
+        <ul class="skills-list">
             <li>C</li>
             <li>Java</li>
             <li>HTML</li>
@@ -131,7 +118,7 @@
         </ul>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact">
         <h1 class="title">Contact Me</h1>
         <div class="contact-info">
@@ -140,7 +127,7 @@
             <p>GitHub: <a href="https://github.com/deepthirs-01">https://github.com/deepthirs-01</a></p>
         </div>
         <footer>
-            <p>Copyright &#169; 2026 Deepthi RS. All Rights Reserved</p>
+            <p>Copyright © 2026 Deepthi RS. All Rights Reserved</p>
         </footer>
     </section>
 
