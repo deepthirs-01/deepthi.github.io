@@ -4,18 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Deepthi RS Portfolio</title>
-    <link rel="stylesheet" href="style.css"/>
+    <style>
+        /* ===== Fonts ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+
+        body { background:#f0f4f8; color:#2c3e50; line-height:1.6; }
+
+        /* ===== Navbar ===== */
+        nav { width:100%; background:rgba(255,255,255,0.95); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; backdrop-filter:blur(10px); box-shadow:0 4px 10px rgba(0,0,0,0.05); }
+        nav .logo a { font-size:1.7rem; font-weight:700; color:#3498db; text-decoration:none; cursor:pointer; }
+        nav ul.nav-links { display:flex; list-style:none; }
+        nav ul.nav-links li { margin-left:2rem; }
+        nav ul.nav-links li a { text-decoration:none; color:#2c3e50; font-weight:500; transition:0.3s; cursor:pointer; }
+        nav ul.nav-links li a:hover { color:#3498db; }
+
+        /* Hamburger icon for mobile */
+        .hamburger-icon { display:none; flex-direction:column; cursor:pointer; }
+        .hamburger-icon span { height:3px; width:25px; background:#2c3e50; margin:4px 0; border-radius:2px; }
+
+        /* Mobile menu */
+        .menu-links { display:none; flex-direction:column; position:absolute; top:70px; right:0; background:rgba(255,255,255,0.95); padding:1rem; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+        .menu-links.active { display:flex; }
+        .menu-links li { margin:1rem 0; list-style:none; }
+        .menu-links li a { color:#2c3e50; text-decoration:none; font-weight:500; }
+
+        /* ===== Hero ===== */
+        #profile { display:flex; align-items:center; justify-content:center; padding:6rem 2rem; background:linear-gradient(135deg,#6a11cb,#2575fc); color:#fff; flex-wrap:wrap; text-align:center; }
+        #profile img { width:220px; height:220px; border-radius:50%; object-fit:cover; border:4px solid #fff; margin-bottom:2rem; }
+        #profile .title { font-size:2.8rem; font-weight:700; margin:0.5rem 0; }
+        #profile p { margin:0.5rem 0; }
+
+        /* Buttons */
+        .btn { padding:0.7rem 1.8rem; margin:0.5rem; border:none; border-radius:30px; cursor:pointer; font-weight:500; text-decoration:none; display:inline-block; transition:all 0.3s ease; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+        .btn-color-1 { background:#fff; color:#2575fc; }
+        .btn-color-1:hover { background:#ecf0f1; transform:translateY(-3px);}
+        .btn-color-2 { background:linear-gradient(135deg,#6a11cb,#2575fc); color:#fff; }
+        .btn-color-2:hover { opacity:0.9; transform:translateY(-3px); }
+
+        /* Social icons */
+        #socials-container img { width:40px; margin:0 0.5rem; cursor:pointer; transition:transform 0.3s; }
+        #socials-container img:hover { transform:scale(1.2); }
+
+        /* Sections */
+        section { padding:4rem 2rem; opacity:0; transform:translateY(40px); transition:all 0.8s ease-out; }
+        section.visible { opacity:1; transform:translateY(0); }
+        section h1.title { font-size:2.2rem; color:#3498db; margin-bottom:2rem; text-align:center; font-weight:700; }
+
+        /* About Me */
+        .about-details-container p { max-width:800px; margin:0 auto; font-size:1rem; text-align:justify; color:#34495e; }
+
+        /* Education & Projects */
+        .education-details-container, .projects-container { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; }
+        .education-details-container div, .project { background:rgba(255,255,255,0.95); padding:2rem; border-radius:15px; width:300px; box-shadow:0 8px 20px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s; }
+        .education-details-container div:hover, .project:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
+
+        /* Skills */
+        ul.skills-list { list-style:none; display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+        ul.skills-list li { background-color:#3498db; color:#fff; padding:0.6rem 1.2rem; border-radius:50px; font-weight:500; transition:0.3s; }
+        ul.skills-list li:hover { background-color:#6a11cb; }
+
+        /* Contact */
+        .contact-info { max-width:600px; margin:0 auto; text-align:center; font-size:1rem; }
+        .contact-info p a { color:#3498db; text-decoration:none; }
+        .contact-info p a:hover { text-decoration:underline; }
+
+        footer { text-align:center; margin-top:3rem; color:#7f8c8d; }
+
+        /* Responsive */
+        @media (max-width:768px) {
+            #profile { flex-direction:column; }
+            #profile img { margin-bottom:2rem; }
+        }
+
+    </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav id="desktop-nav">
-        <div class="logo"><a href="javascript:void(0)" onclick="scrollToSection('profile')">Deepthi RS</a></div>
+        <div class="logo"><a onclick="scrollToSection('profile')">Deepthi RS</a></div>
         <ul class="nav-links">
-            <li><a href="javascript:void(0)" onclick="scrollToSection('about')">About Me</a></li>
-            <li><a href="javascript:void(0)" onclick="scrollToSection('education')">Education</a></li>
-            <li><a href="javascript:void(0)" onclick="scrollToSection('skills')">Skills</a></li>
-            <li><a href="javascript:void(0)" onclick="scrollToSection('projects')">Projects</a></li>
-            <li><a href="javascript:void(0)" onclick="scrollToSection('contact')">Contact</a></li>
+            <li><a onclick="scrollToSection('about')">About Me</a></li>
+            <li><a onclick="scrollToSection('education')">Education</a></li>
+            <li><a onclick="scrollToSection('skills')">Skills</a></li>
+            <li><a onclick="scrollToSection('projects')">Projects</a></li>
+            <li><a onclick="scrollToSection('contact')">Contact</a></li>
         </ul>
         <div class="hamburger-icon" onclick="togglemenu()">
             <span></span>
@@ -26,11 +100,11 @@
 
     <!-- Mobile menu -->
     <div class="menu-links">
-        <li><a href="javascript:void(0)" onclick="scrollToSection('about'); togglemenu()">About Me</a></li>
-        <li><a href="javascript:void(0)" onclick="scrollToSection('education'); togglemenu()">Education</a></li>
-        <li><a href="javascript:void(0)" onclick="scrollToSection('skills'); togglemenu()">Skills</a></li>
-        <li><a href="javascript:void(0)" onclick="scrollToSection('projects'); togglemenu()">Projects</a></li>
-        <li><a href="javascript:void(0)" onclick="scrollToSection('contact'); togglemenu()">Contact</a></li>
+        <li><a onclick="scrollToSection('about'); togglemenu()">About Me</a></li>
+        <li><a onclick="scrollToSection('education'); togglemenu()">Education</a></li>
+        <li><a onclick="scrollToSection('skills'); togglemenu()">Skills</a></li>
+        <li><a onclick="scrollToSection('projects'); togglemenu()">Projects</a></li>
+        <li><a onclick="scrollToSection('contact'); togglemenu()">Contact</a></li>
     </div>
 
     <!-- Hero Section -->
@@ -58,11 +132,11 @@
         <h1 class="title">About Me</h1>
         <div class="about-details-container">
             <p>
-                I am currently pursuing my Bachelor’s degree in Information Science and Engineering at SJB Institute of Technology, where I’m building a solid foundation in programming, algorithms, and modern software development practices.
+                I am currently pursuing my Bachelor’s degree in Information Science and Engineering at SJB Institute of Technology, building a solid foundation in programming, algorithms, and modern software development practices.
                 <br><br>
                 Programming: C, C++, Java (learning) | Web Technologies: HTML, CSS | Areas of Interest: Software Development, Software Testing, System Design
                 <br><br>
-                Alongside my technical journey, I am currently learning Japanese to expand my global career perspective and prepare myself for opportunities in dynamic, innovation-driven environments.
+                I am currently learning Japanese to expand my global career perspective and prepare myself for opportunities in dynamic, innovation-driven environments.
                 <br><br>
                 I am seeking internship and entry-level opportunities where I can contribute to impactful projects, collaborate with ambitious teams, and evolve into a highly skilled software engineer.
             </p>
@@ -131,6 +205,29 @@
         </footer>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        // Smooth scroll
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({behavior:'smooth'});
+        }
+
+        // Mobile menu toggle
+        function togglemenu() {
+            document.querySelector('.menu-links').classList.toggle('active');
+        }
+
+        // Scroll animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold:0.15});
+
+        sections.forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
